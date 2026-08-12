@@ -1,5 +1,5 @@
 fastapi>=0.115.6
-haystack-ai==2.8.0
+haystack-ai==3.0.0
 markdown-it-py>=3.0.0
 mdit_plain>=1.0.1
 opensearch-haystack==1.2.0
