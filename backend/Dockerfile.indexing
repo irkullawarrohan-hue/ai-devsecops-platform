@@ -1,26 +1,4 @@
-# FROM python:3.12-slim
-
-# WORKDIR /app
-
-# RUN apt-get update && \
-#     apt-get upgrade -y && \
-#     apt-get install -y --no-install-recommends curl && \
-#     rm -rf /var/lib/apt/lists/*
-
-# COPY requirements.txt .
-
-# RUN pip install --no-cache-dir -r requirements.txt
-
-# COPY src/common/ /app/common/
-# COPY src/indexing/ /app/indexing/
-
-# EXPOSE 8001
-
-# CMD ["uvicorn", "indexing.main:app", "--host", "0.0.0.0", "--port", "8001"]
-
-
-
-FROM python:3.12-slim
+FROM python:3.12-slim-bookworm
 
 WORKDIR /app
 
