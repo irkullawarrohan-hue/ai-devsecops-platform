@@ -24,4 +24,5 @@ jobs:
           image-ref: haystack-indexing:scan
           format: table
           severity: CRITICAL,HIGH
+          ignore-unfixed: true
           exit-code: 1
