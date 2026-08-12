@@ -2,7 +2,7 @@ fastapi>=0.115.6
 haystack-ai==2.8.0
 markdown-it-py>=3.0.0
 mdit_plain>=1.0.1
-opensearch-haystack==1.2.0
+opensearch-haystack==8.2.1
 pydantic-settings>=2.7.0
 pypdf>=5.1.0
 python-dotenv>=1.0.1
