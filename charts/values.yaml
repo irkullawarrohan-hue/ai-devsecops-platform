@@ -1,7 +1,7 @@
 global:
   environment: development
   image:
-    registryPath: gcr.io/your-project-id  # Registry, e.g. Docker Hub, GCR, ECR, etc.
+    registryPath: docker.io/rohanirkullawar2205  # Registry, e.g. Docker Hub, GCR, ECR, etc.
     pullPolicy: Always
   secrets:
     useExternalSecrets: true  # Set this to true to use external secrets
