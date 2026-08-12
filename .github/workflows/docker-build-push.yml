@@ -1,0 +1,31 @@
+name: Docker Build and Push
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build-push:
+    name: Build and Push Indexing Image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@184bdaa0721073962dff019f1fb5c5c4d9e6e3c
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push indexing image
+        uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
+        with:
+          context: ./backend
+          file: ./backend/Dockerfile.indexing
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/haystack-indexing:latest
