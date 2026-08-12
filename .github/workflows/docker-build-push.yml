@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   build-push:
-    name: Build and Push Indexing Image
+    name: Build and Push Images
     runs-on: ubuntu-latest
 
     steps:
@@ -28,4 +28,20 @@ jobs:
           context: ./backend
           file: ./backend/Dockerfile.indexing
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/haystack-indexing:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/hra-indexing:latest
+
+      - name: Build and push query image
+        uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
+        with:
+          context: ./backend
+          file: ./backend/Dockerfile.query
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/hra-query:latest
+
+      - name: Build and push frontend image
+        uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
+        with:
+          context: ./frontend
+          file: ./frontend/Dockerfile.frontend
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/hra-frontend:latest
